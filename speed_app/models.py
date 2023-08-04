@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
+# from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.contrib.auth.models import User
 import random
 
@@ -31,7 +31,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.user.user.username
-
 
 
 """
