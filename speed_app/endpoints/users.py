@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from django.http import Http404
 
 
+# this only accessible by admin, it returns all users
 class GetAllUsers(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -20,6 +21,7 @@ class GetAllUsers(APIView):
         return Response(serializer.data)
 
 
+# this is the endpoint for authenticated user to send funds to another user
 class SendFunds(APIView):
     serializer_class = SendFundSerializer
     permission_classes = [IsAuthenticated]
@@ -52,6 +54,7 @@ class SendFunds(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# this is the endpoint for authenticated user to deposit funds
 class DepositFunds(APIView):
     serializer_class = DepositFundSerializer
     permission_classes = [IsAuthenticated]
@@ -72,6 +75,7 @@ class DepositFunds(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# this is the endpoint for authenticated user to check balance
 class CheckBalance(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -80,6 +84,7 @@ class CheckBalance(APIView):
         return Response({'message': f'Your balance is ${user.balance}'}, status=status.HTTP_200_OK)
 
 
+# this is the endpoint for authenticated user to check his/her details
 class UserDetails(APIView):
     permission_classes = [IsAuthenticated]
 

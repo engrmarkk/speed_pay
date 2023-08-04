@@ -216,6 +216,8 @@ Python3: [Get Python](https://www.python.org/downloads/)
 <br>
 POST (Register) http://127.0.0.1:8000/api/register
 
+To get registered as an admin, make sure your email ends with @speedpay
+
 REQUEST
 ```json
 {
@@ -223,6 +225,8 @@ REQUEST
   "password1": "string",
   "password2": "string",
   "email": "string@string.com",
+   "or"
+   "email": "string@speedpay.com",
   "username": "string",
   "lastname": "string",
 }
