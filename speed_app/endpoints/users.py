@@ -77,7 +77,7 @@ class CheckBalance(APIView):
 
     def get(self, request):
         user = request.user
-        return Response({'message': f'Your balance is {user.balance}'}, status=status.HTTP_200_OK)
+        return Response({'message': f'Your balance is ${user.balance}'}, status=status.HTTP_200_OK)
 
 
 class UserDetails(APIView):
