@@ -3,6 +3,7 @@ from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser
 from django.contrib.auth.models import User
 import random
 from .manager import CustomUserManager
+from rest_framework.response import Response
 
 
 def generate_account_number():
@@ -38,4 +39,13 @@ class Transaction(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.transaction_type
+        return self.user.email + " " + str(self.transaction_amount)
+
+
+def admin_required(function):
+    def wrap(request, *args, **kwargs):
+        if request.user.is_staff:
+            return function(request, *args, **kwargs)
+        else:
+            return Response({"message": "Only admin can access this page"}, status=403)
+    return wrap
