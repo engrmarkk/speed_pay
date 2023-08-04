@@ -23,16 +23,6 @@
 
 <br />
 
-<div>
-  <p align="center">
-    <a href="https://github.com/engrmarkk/Scissor API#readme"><strong>Explore the docs »</strong></a>
-    <br />
-    ·
-    <a href="https://github.com/engrmarkk/Scissor API/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/engrmarkk/Scissor API/issues">Request Feature</a>
-  </p>
-</div>
 
 ---
 
