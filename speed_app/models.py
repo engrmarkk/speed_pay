@@ -32,10 +32,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Transaction(models.Model):
-    transaction_type = models.CharField(max_length=100)
     date_posted = models.DateTimeField(auto_now_add=True)
     transaction_amount = models.IntegerField()
-    transact_user = models.CharField(max_length=100)
+    transact_user_account = models.IntegerField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
