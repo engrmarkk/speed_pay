@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from .models import CustomUser
+from .models import CustomUser, Transaction
 
 
 class CustomRegisterSerializer(serializers.Serializer):
@@ -84,3 +84,15 @@ class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['id', 'firstname', 'lastname', 'username', 'email', 'phone', 'account_number', 'balance']
+
+
+class SendFundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ['transaction_amount', 'transact_user_account']
+
+
+class DepositFundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ['transaction_amount']
