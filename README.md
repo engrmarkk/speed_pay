@@ -253,6 +253,7 @@ REQUEST
 [//]: # (```)
 POST (Login) http://127.0.0.1:8000/api/login
 
+
 REQUEST
 ```json
 {
@@ -268,6 +269,13 @@ RESPONSE
     "key": "eyJhbGciOiJIUzIEyM...................",
   }
 ```
+
+To login with your key,
+
+```sh
+Token <key>
+```
+`
 
 POST (Send fund) http://127.0.0.1:8000/api/send-fund <br/>
 @login_required
