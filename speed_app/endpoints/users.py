@@ -66,3 +66,20 @@ class DepositFunds(APIView):
             return Response({'message': 'Funds deposited successfully'}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CheckBalance(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        return Response({'message': f'Your balance is {user.balance}'}, status=status.HTTP_200_OK)
+
+
+class UserDetails(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializers(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
