@@ -11,7 +11,7 @@ from django.http import Http404
 
 
 class GetAllUsers(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     @method_decorator(admin_required)
     def get(self, request):
