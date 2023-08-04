@@ -389,7 +389,7 @@ Adeniyi Olanrewaju - [@iamengrmark](https://twitter.com/iamengrmark) - adeniyibo
 
 Project Link: [SpeedPay Test Api](https://github.com/engrmarkk/speed_pay) <br>
 
-Live Link: [Cut Live](https://cut-ox14.onrender.com/)
+Live Link: [Speed Test](https://speedpay-test-f0cbc8c0843d.herokuapp.com/)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
