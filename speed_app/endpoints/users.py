@@ -2,14 +2,18 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
-from speed_app.models import CustomUser, Transaction
+from speed_app.models import CustomUser, Transaction, admin_required
 from speed_app.serializers import UserSerializers, SendFundSerializer, DepositFundSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.core.exceptions import ObjectDoesNotExist
+from django.utils.decorators import method_decorator
+from django.http import Http404
 
 
 class GetAllUsers(APIView):
     permission_classes = [AllowAny]
 
+    @method_decorator(admin_required)
     def get(self, request):
         users = CustomUser.objects.all()
         serializer = UserSerializers(users, many=True)
@@ -27,8 +31,8 @@ class SendFunds(APIView):
             transact_user_account = serializer.validated_data['transact_user_account']
             transaction_amount = serializer.validated_data['transaction_amount']
             try:
-                recipient = Transaction.objects.get(transact_user_account=transact_user_account)
-            except recipient.DoesNotExist:
+                recipient = CustomUser.objects.get(account_number=transact_user_account)
+            except CustomUser.DoesNotExist:
                 return Response({'message': 'Invalid account number'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
