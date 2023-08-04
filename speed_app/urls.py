@@ -1,6 +1,6 @@
 from django.urls import path
 from .endpoints.auth import CustomRegisterView
-from .endpoints.users import GetAllUsers, SendFunds, DepositFunds
+from .endpoints.users import GetAllUsers, SendFunds, DepositFunds, CheckBalance, UserDetails
 from dj_rest_auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -10,4 +10,6 @@ urlpatterns = [
     path('deposit-funds/', DepositFunds.as_view(), name='deposit-funds'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('check-balance/', CheckBalance.as_view(), name='check-balance'),
+    path('my-details/', UserDetails.as_view(), name='user-details'),
 ]
