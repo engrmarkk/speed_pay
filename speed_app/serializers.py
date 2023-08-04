@@ -78,3 +78,9 @@ class CustomRegisterSerializer(serializers.Serializer):
             user.set_password(self.validated_data['password1'])
             user.save()
         return user
+
+
+class UserSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'firstname', 'lastname', 'username', 'email', 'phone', 'account_number', 'balance']

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser
 from django.contrib.auth.models import User
 import random
+from .manager import CustomUserManager
 
 
 def generate_account_number():
@@ -24,7 +25,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
-    # objects = CustomRegisterSerializer()
+    objects = CustomUserManager()
 
     def __str__(self):
         return self.email

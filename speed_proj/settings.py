@@ -108,7 +108,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-# REST_AUTH_REGISTER_SERIALIZERS = {'REGISTER_SERIALIZER': 'speed_app.serializers.RegisterSerializer'}
+REST_AUTH_REGISTER_SERIALIZERS = {'REGISTER_SERIALIZER': 'speed_app.serializers.RegisterSerializer'}
 
 REST_AUTH = {
     'OLD_PASSWORD_FIELD_ENABLED': True,
